@@ -3,6 +3,9 @@ import logging.handlers
 import sys
 from pathlib import Path
 
+from my_app.config import settings
+
+
 def setup_logging(app_name="MyApp"):
     """
     Sets up logging to console (INFO+) and file (DEBUG+).
@@ -16,7 +19,7 @@ def setup_logging(app_name="MyApp"):
     # 2. Create Root Logger
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
-    
+
     # Clear existing handlers to avoid duplicates if called twice
     if logger.hasHandlers():
         logger.handlers.clear()
@@ -35,7 +38,7 @@ def setup_logging(app_name="MyApp"):
 
     # 5. Console Handler
     console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setLevel(logging.INFO)
+    console_handler.setLevel(settings.LOG_LEVEL)
     console_handler.setFormatter(console_fmt)
     logger.addHandler(console_handler)
 

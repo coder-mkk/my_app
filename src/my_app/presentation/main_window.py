@@ -35,8 +35,8 @@ class MainWindow(QMainWindow):
         theme_menu.addAction(light_action)
         theme_group.addAction(light_action)
 
-        settings = QSettings()
-        if settings.value("theme", "dark") == "light":
+        ui_settings = QSettings()
+        if ui_settings.value("theme", "dark") == "light":
             light_action.setChecked(True)
         else:
             dark_action.setChecked(True)
@@ -49,8 +49,8 @@ class MainWindow(QMainWindow):
         file_menu.addAction(exit_action)
 
     def _apply_theme(self, theme_name):
-        settings = QSettings()
-        settings.setValue("theme", theme_name)
+        ui_settings = QSettings()
+        ui_settings.setValue("theme", theme_name)
 
         app = QApplication.instance()
         if app:
