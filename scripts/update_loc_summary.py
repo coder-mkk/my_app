@@ -93,6 +93,7 @@ def main() -> None:
         "files": files_info,
     }
 
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(summary, indent=2))
     print(f"Updated {report_path.relative_to(workspace_root)}")
 
