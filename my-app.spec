@@ -58,15 +58,3 @@ exe = EXE(
     # TODO: Add path to an application icon file (.ico on Windows, .icns on macOS)
     # icon=str(project_root / 'assets' / 'app_icon.ico'),
 )
-
-# Collection object (for one-folder bundle).
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name=app_name,
-)
